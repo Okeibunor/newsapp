@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render partial: 'shared/head_contents' %>
+  </head>
+
+  <body>
+    <header>
+      <%= render partial: 'news/navbar' %>
+    </header>
+
+    <main class="container-fluid mt-4" role="main">
+      <%= yield %>
+    </main>
+  </body>
+</html>

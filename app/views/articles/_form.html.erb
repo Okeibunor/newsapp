@@ -1,0 +1,22 @@
+<div class="card mb-3">
+  <h5 class="card-header">
+    <%= @article.persisted? ? 'Update' : 'Create' %> Article
+  </h5>
+
+  <div class="card-body">
+    <%= simple_form_for @article do |f| %>
+      <%= f.input :title %>
+      <%= f.input :url %>
+      <%= f.input :guid %>
+      <%= f.input :primary_image_url %>
+      <%= f.input :thumbnail_image_url %>
+      <%= f.input :published_at %>
+      <%= f.association :channel %>
+      <%= f.association :group %>
+      <%= f.input :description %>
+      <%= f.input :content %>
+      <%= f.input :scraped_content %>
+      <%= f.button :submit, class: 'btn btn-outline-primary' %>
+    <% end %>
+  </div>
+</div>

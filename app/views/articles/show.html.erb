@@ -1,0 +1,52 @@
+<div class="row mb-4">
+  <div class="col-12">
+    <%= render partial: 'articles/breadcrumbs', locals: { last_title: 'Detail' } %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <%= render @article %>
+
+    <div class="card mb-3">
+      <div class="card-body">
+        <p class="card-text">
+          <label class="font-weight-bolder">GUID</label>
+          <p class="card-text"><%= @article.guid %></p>
+
+          <label class="font-weight-bolder">Primary Image URL</label>
+          <p>
+            <% if @article.primary_image_url %>
+              <%= link_to @article.primary_image_url, @article.primary_image_url, target: '_blank' %>
+            <% else %>
+              <%= empty_text %>
+            <% end %>
+          </p>
+
+          <label class="font-weight-bolder">Thumbnail Image URL</label>
+          <p>
+            <% if @article.thumbnail_image_url %>
+              <%= link_to @article.thumbnail_image_url, @article.primary_image_url, target: '_blank' %>
+            <% else %>
+              <%= empty_text %>
+            <% end %>
+          </p>
+        </p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-body">
+        <label class="font-weight-bolder">Content</label>
+        <p><%= coalesce_to_empty(@article.content).html_safe %></p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-body">
+        <label class="font-weight-bolder">Scraped Content</label>
+        <p><%= coalesce_to_empty(@article.scraped_content).html_safe %></p>
+      </div>
+    </div>
+  </div>
+</div>

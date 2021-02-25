@@ -1,0 +1,54 @@
+<div class="row mb-4">
+  <div class="col-12">
+    <%= render partial: 'channels/breadcrumbs', locals: { last_title: 'Detail' } %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <%= render @channel %>
+  </div>
+</div>
+
+<div class="card mb-3">
+  <div class="card-body">
+    <p class="card-text">
+      <label class="font-weight-bolder">Image URL</label>
+      <p>
+        <% if @channel.image_url %>
+          <%= link_to @channel.image_url, @channel.image_url, target: '_blank' %>
+        <% else %>
+          <%= empty_text %>
+        <% end %>
+      </p>
+
+      <label class="font-weight-bolder">Use Scraper</label>
+      <p><%= yes_no(@channel.use_scraper) %></p>
+
+      <label class="font-weight-bolder">Scraping Content Selector</label>
+      <p><%= coalesce_to_empty(@channel.scraping_content_selector) %></p>
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card mb-3">
+      <h5 class="card-header">
+        Articles
+      </h5>
+
+      <div class="card-body">
+        <div>
+          <% if @channel.articles.any? %>
+            <% @channel.articles.each do |article| %>
+              <%= render partial: 'articles/list_item', locals: { article: article } %>
+            <% end %>
+          <% else %>
+            <em>No articles to display.</em>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

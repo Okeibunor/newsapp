@@ -1,0 +1,22 @@
+<div class="story-featured pb-3 border-bottom-dark">
+  <div class="d-md-flex">
+    <div class="pr-1 flex-1">
+      <%= story_meta(group) %>
+      <%= story_title_link(group) %>
+
+      <div class="story-grid-spacer w-25"></div>
+
+      <div class="story-summary">
+        <%= group.display_summary %>
+      </div>
+    </div>
+
+    <div class="my-3 my-md-0 flex-1">
+      <img class="w-100" src="<%= group.primary_image_url %>">
+    </div>
+  </div>
+
+  <div class="story-grid-spacer"></div>
+
+  <%= render partial: 'news/stories_featured_secondary_articles', locals: { articles: group.secondary_articles } %>
+</div>

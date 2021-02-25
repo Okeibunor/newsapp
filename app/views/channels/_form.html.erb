@@ -1,0 +1,18 @@
+<div class="card mb-3">
+  <h5 class="card-header">
+    <%= @channel.persisted? ? 'Update' : 'Create' %> Channel
+  </h5>
+
+  <div class="card-body">
+    <%= simple_form_for @channel do |f| %>
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.input :image_url %>
+      <%= f.input :scraping_content_selector %>
+      <%= f.input :url, hint: 'This must be a valid web address' %>
+      <%= f.input :use_scraper, as: :boolean %>
+      <%= f.association :category %>
+      <%= f.button :submit, class: 'btn btn-outline-primary' %>
+    <% end %>
+  </div>
+</div>

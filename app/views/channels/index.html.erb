@@ -1,0 +1,27 @@
+<div class="row mb-4">
+  <div class="col-12 col-md-6">
+    <%= render partial: 'channels/breadcrumbs', locals: { last_title: 'All' } %>
+  </div>
+
+  <div class="col-12 col-md-6 mt-2 mt-md-0">
+    <%= link_to new_channel_path, class: "btn btn-outline-success btn-sm float-md-right" do %>
+      <i class="fas fa-plus"></i> New Channel
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <% if @channels.any? %>
+      <%= render @channels %>
+    <% else %>
+      <h2>No channels to display.</h2>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <%= paginate @channels %>
+  </div>
+</div>

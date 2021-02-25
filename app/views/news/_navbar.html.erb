@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <%= link_to news_path(category: 'us'), class: 'mr-3' do %>
+    <%= image_tag 'logo.png', alt: 'POLYNews', class: 'nav-logo' %>
+  <% end %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse"
+      data-target="#main-navbar" aria-controls="main-navbar"
+      aria-expanded="false" aria-label="Toggle navigation">
+
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="main-navbar">
+    <ul class="navbar-nav mr-auto">
+      <%= render partial: 'news/navbar_item', locals: { text: 'US', slug: 'us' } %>
+      <%= render partial: 'news/navbar_item', locals: { text: 'World', slug: 'world' } %>
+      <%= render partial: 'news/navbar_item', locals: { text: 'Economy', slug: 'economy' } %>
+      <%= render partial: 'news/navbar_item', locals: { text: 'Science', slug: 'science' } %>
+      <%= render partial: 'news/navbar_item', locals: { text: 'Tech', slug: 'tech' } %>
+      <%= render partial: 'news/navbar_item', locals: { text: 'Politics', slug: 'politics' } %>
+      <%= render partial: 'news/navbar_item', locals: { text: 'Sports', slug: 'sports' } %>
+      <%= render partial: 'news/navbar_item', locals: { text: 'Long Form', slug: 'long_form' } %>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,8 @@
+document
+  .querySelector("#story-grid")
+  .insertAdjacentHTML(
+    "beforeend",
+    "<%= j render partial: 'news/story_grid', locals: { news: @news } %>"
+  );
+
+document.querySelector('#story-grid-loading-indicator').style.display = 'none';

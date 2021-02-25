@@ -1,0 +1,21 @@
+<div id="news-category-header" class="news-row">
+  <div class="display-4">
+    <%= @news.category.title %>
+  </div>
+</div>
+
+<% if @news.any_groups? %>
+  <div class="news-row">
+    <div id="story-grid" class="border-top-dark pt-4">
+      <%= render partial: 'news/story_grid', locals: { news: @news } %>
+    </div>
+
+    <%= render partial: 'news/story_grid_loading_indicator' %>
+  </div>
+<% else %>
+  <div class="news-row">
+    <div class="display-4">
+      <h4><em>No stories for this category right now. Check back!</em></h4>
+    </div>
+  </div>
+<% end %>
